@@ -32,12 +32,14 @@ jobs:
         run: |
           make scaffold V=v3.0.0 F=../.semver.yml O=..
       - uses: actions/cache@v2
-        name: Install Node Packages and Cache
+        name: Cache node modules
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: Install Dependencies
+        run: npm install
       - name: Release
         working-directory: ./.release
         env:
