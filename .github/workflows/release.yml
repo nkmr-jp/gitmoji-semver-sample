@@ -31,19 +31,10 @@ jobs:
         working-directory: ./gitmoji-semver
         run: |
           make scaffold V=v3.0.0 F=../.semver.yml O=.. M=simple
-      - uses: actions/cache@v2
-        name: Cache node modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install Dependencies
-        working-directory: ./.release
-        run: npm install
       - name: Release
         working-directory: ./.release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          npm install
           npx semantic-release
