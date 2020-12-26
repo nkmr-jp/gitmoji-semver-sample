@@ -1,0 +1,22 @@
+# .semver.yml
+
+# Release Branches
+branches: [ master, main ]
+
+# gitmoji semver settings (default is none)
+semver:
+  major:
+    - boom      # Introduce breaking changes.
+  minor:
+    - sparkles  # Introduce new features.
+  patch:
+    - bug                   # Fix a bug.
+    - ambulance             # Critical hotfix.
+    - green_heart           # Fix CI Build.
+    - construction_worker   # Add or update CI build system.
+  none:
+    - memo      # Add or update documentation.
+
+  # Prevents it from appearing in Github's Release.
+  ignore:
+    - construction  # Work in progress.

@@ -21,7 +21,7 @@ jobs:
         run: |
           sudo wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O /usr/bin/jq &&\
           sudo chmod +x /usr/bin/jq
-          sudo pip install yq
+          sudo pip install yq v
           jq --version
           yq --version
       - name: Install gitmoji-semver
