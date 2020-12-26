@@ -39,6 +39,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install Dependencies
+        working-directory: ./.release
         run: npm install
       - name: Release
         working-directory: ./.release
